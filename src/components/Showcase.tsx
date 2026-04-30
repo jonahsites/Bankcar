@@ -32,28 +32,28 @@ const modelData = [
 
 const sections = [
   {
-    label: "01 — Hybrid Super SUV",
+    label: "Asset 01 — Direct Liquidation",
     title: "Lamborghini\nUrus SE",
-    desc: "The pinnacle of high-performance utility. 800 CV of lightning-fast acceleration and uncompromising power.",
-    tags: ["High Velocity", "800 CV", "Turbocharged"],
+    desc: "Pristine performance SUV acquired through institutional liquidation. 800 CV hybrid powertrain with full service documentation.",
+    tags: ["Verified Asset", "Institutional Source", "Tax Advantage"],
     color: "#050505",
-    accent: "#E31B23"
+    accent: "#FFFFFF"
   },
   {
-    label: "02 — M Performance",
+    label: "Asset 02 — High-Value Asset",
     title: "BMW\nM4 Competition",
-    desc: "Precision engineering meets aggressive design. A straight-six masterpiece that delivers raw power and surgical handling.",
-    tags: ["M-Powered", "503 HP", "Isle of Man Green"],
+    desc: "Aggressive M-series engineering held as high-grade collateral. Surgical handling and raw power, ready for immediate acquisition.",
+    tags: ["Rapid Sale", "Zero Liens", "Title Clear"],
     color: "#050505",
-    accent: "#E31B23"
+    accent: "#FFFFFF"
   },
   {
-    label: "03 — Track Focused",
+    label: "Asset 03 — Performance Grade",
     title: "McLaren\n570S Coupe",
-    desc: "A pure driver's car. Lightweight carbon construction and a mid-mounted V8 designed for the ultimate adrenaline rush.",
-    tags: ["Carbon Tube", "V8 Bi-Turbo", "Monocell II"],
+    desc: "Carbon-fiber supercar liquidation. A mid-mounted V8 masterpiece representing the pinnacle of driver-focused financial assets.",
+    tags: ["Low Mileage", "Buy-Now Pricing", "Inspection Ready"],
     color: "#050505",
-    accent: "#E31B23"
+    accent: "#FFFFFF"
   }
 ];
 
@@ -489,11 +489,11 @@ const Showcase: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="fixed bottom-32 left-1/2 -translate-x-1/2 z-100 bg-red-500/10 backdrop-blur-md border border-red-500/20 px-6 py-4 rounded-sm flex items-center gap-4 text-red-500 pointer-events-auto"
+            className="fixed bottom-32 left-1/2 -translate-x-1/2 z-100 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-sm flex items-center gap-4 text-white pointer-events-auto"
           >
             <AlertCircle size={20} />
             <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-widest">System Warning</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">System Warning</span>
               <span className="text-xs">{loadError}</span>
             </div>
             <button onClick={() => setLoadError(null)} className="ml-4 opacity-50 hover:opacity-100 transition-opacity">✕</button>
@@ -522,24 +522,23 @@ const Showcase: React.FC = () => {
           className={`relative w-full h-screen flex items-center p-10 md:p-24 transition-colors duration-1000 ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
           style={{ backgroundColor: `${section.color}0D` }}
         >
-          {/* Decorative background character */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none overflow-hidden w-full h-full flex items-center justify-center opacity-[0.03]">
-            <span className="text-[60vh] font-serif font-black tracking-tighter uppercase" style={{ color: section.accent }}>
+          {/* Subtle background detail */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none overflow-hidden w-full h-full flex items-center justify-center opacity-[0.02]">
+            <span className="text-[40vh] font-bold tracking-tighter uppercase text-white">
               {section.title.charAt(0)}
             </span>
           </div>
 
           <div className={`max-w-xl pointer-events-auto ${i % 2 === 0 ? 'text-left' : 'text-right'}`}>
             <div 
-              className="text-[10px] font-bold uppercase tracking-[0.6em] mb-6 transition-colors duration-500"
-              style={{ color: section.accent }}
+              className="text-[10px] font-bold uppercase tracking-[0.4em] mb-6 transition-colors duration-500 text-white/40"
             >
-              {section.label}
+              {[section.label].map(l => l.toUpperCase())}
             </div>
             
-            <h2 className="text-5xl md:text-8xl font-serif font-bold mb-8 leading-[0.85] tracking-tighter whitespace-pre-line uppercase">
+            <h2 className="text-6xl md:text-8xl font-bold mb-8 leading-[0.9] tracking-tight whitespace-pre-line uppercase">
               {section.title.split('\n').map((line, idx) => (
-                <span key={idx} className="block last:text-white/40">
+                <span key={idx} className="block last:text-white/20">
                   {line}
                 </span>
               ))}

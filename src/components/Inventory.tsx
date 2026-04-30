@@ -55,9 +55,9 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
         {/* Header */}
         <div className="flex justify-between items-start mb-20">
           <div>
-            <div className="text-accent text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Turismo Exotics High Performance Fleet</div>
-            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none">
-              The <span className="text-white/20 text-outline">Power</span> <br/> On Demand.
+            <div className="text-white/40 text-[10px] uppercase tracking-[0.4em] font-bold mb-4">Current Vehicle Inventory</div>
+            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight leading-none">
+              Direct <span className="text-white/20 text-outline">Sales</span> <br/> Available Stock.
             </h2>
           </div>
           <button 
@@ -76,7 +76,7 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  activeCategory === cat ? 'bg-accent text-black' : 'bg-white/5 border border-white/10 text-white/40 hover:text-white'
+                  activeCategory === cat ? 'bg-white text-black' : 'bg-white/5 border border-white/10 text-white/40 hover:text-white'
                 }`}
               >
                 {cat}
@@ -118,30 +118,30 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 border border-white/10 rounded-sm">
-                    <span className="text-[10px] font-bold text-accent">${car.price}/D</span>
+                    <span className="text-[10px] font-bold text-white">${car.price.toLocaleString()}</span>
                   </div>
                 </div>
 
                 {/* Info */}
                 <div className="p-8">
                   <div className="text-[9px] uppercase tracking-widest text-white/30 mb-2">{car.category}</div>
-                  <h3 className="text-xl font-bold uppercase tracking-tighter mb-6 group-hover:text-accent transition-colors">{car.name}</h3>
+                  <h3 className="text-xl font-bold uppercase tracking-tighter mb-6 group-hover:text-white transition-colors">{car.name}</h3>
                   <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
                     <div>
-                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1">Horsepower</div>
-                      <div className="text-sm font-bold tracking-tighter">{car.hp} HP</div>
+                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1">Asset Grade</div>
+                      <div className="text-sm font-bold tracking-tighter">PREMIUM</div>
                     </div>
                     <div>
-                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1">Max Speed</div>
-                      <div className="text-sm font-bold tracking-tighter">{car.speed}</div>
+                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1">Specs</div>
+                      <div className="text-sm font-bold tracking-tighter">{car.hp} HP</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                 
-                <button className="absolute bottom-8 right-8 w-10 h-10 bg-accent text-black rounded-sm flex items-center justify-center translate-y-20 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all delay-100">
+                <button className="absolute bottom-8 right-8 w-10 h-10 bg-white text-black rounded-sm flex items-center justify-center translate-y-20 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all delay-100">
                   <ArrowUpRight size={18} />
                 </button>
               </motion.div>
@@ -151,7 +151,7 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
 
         {filteredCars.length === 0 && (
           <div className="py-40 text-center">
-            <p className="text-white/20 uppercase tracking-[0.5em] text-xs">No matching vehicles found in our Miami collection.</p>
+            <p className="text-white/20 uppercase tracking-[0.4em] text-xs font-bold">No vehicles found matching your criteria.</p>
           </div>
         )}
       </div>
